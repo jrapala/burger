@@ -23,13 +23,13 @@
 	app.use(express.static(process.cwd() + "/public"));
 
 	// Handlebars Config
-
 	app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 	app.set("view engine", "handlebars");
 
 	// Route Config
-	require('./routes/htmlRoutes')(app);
-	require('./routes/apiRoutes')(app);
+	var routes = require("./controllers/burgers_controller.js");
+	app.use("/", routes);
+	app.listen(PORT);
 	
 	// MySQL Config
 	var mysql = require("mysql");
@@ -41,11 +41,11 @@
 	  database: "burgers_db"
 	});
 
-	// Connect to database
-	connection.connect(function(err) {
-	  if (err) {
-	    console.error("error connecting: " + err.stack);
-	    return;
-	  }
-	  console.log("connected as id " + connection.threadId);
-	});
+	// // Connect to database
+	// connection.connect(function(err) {
+	//   if (err) {
+	//     console.error("error connecting: " + err.stack);
+	//     return;
+	//   }
+	//   console.log("connected as id " + connection.threadId);
+	// });

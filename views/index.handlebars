@@ -1,0 +1,13 @@
+<ul>
+  {{#each burgers}}
+    <li>
+       <p>Burger: {{this.burger_name}}</p>
+    </li>
+  {{/each}}
+</ul>
+
+<form id="burgerForm">
+  <input type="text" id="userBurger" class="form-control" name="userBurger" required>
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"></i> Submit</button>
+</form>

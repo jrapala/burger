@@ -23,10 +23,12 @@
 		<!-- Header
 		========================================== -->
   		<header>
-  			<div class="container col-sm-4 text-center">
+  			<div class="container text-center">
   				<div class="row">
-  					<img src="/images/burger.png" alt="Burger">
-  					<h1>Eat-Da-Burger!</h1>
+  					<div class="col-lg-4 col-lg-offset-4">
+  						<img id="headerImg" src="/images/burger.png" alt="Burger">
+  						<h1 id="headline">Eat-Da-Burger!</h1>
+  					</div>
   				</div>
   			</div>
 		</header>
@@ -36,7 +38,9 @@
 		<main>
 			<body>
 				<div class="container">
-					{{{ body }}}
+					<div class="row" id="burgerLists">
+						<div class="col-md-5 col-md-offset-1">
+						{{{ body }}}
 				</div>
 			</body>
 		</main>

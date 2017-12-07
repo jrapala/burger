@@ -17,15 +17,34 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  burger.insertOne([
-      "burger_name", 
-    ], [
-      req.body[burger_name]
-    ], function(result) {
+  burger.insertOne("burger_name", req.body.burger_name, function(result) {
       // Send back the ID of the new quote
-      res.json({ id: result.insertId });
+      res.redirect('/');
   });
 });
+
+router.put("/api/burgers/:id", function(req, res) {
+  var burgerID = req.params.id;
+
+  burger.updateOne({
+    devoured: true
+  }, burgerID, function(data) {
+    res.redirect('/');
+  });
+});
+
+
+  // },
+  // insertOne: function(table, cols, vals, cb) {
+  //     var queryString = "INSERT INTO" + tableInput + " (" + cols.toString() + ") VALUES (" + vals + ") ;";
+  //     console.log(queryString);
+  //     connection.query(queryString, function(err, result) {
+  //       if (err) {
+  //         throw err;
+  //       }
+  //       cb(result);
+  //     });
+  // },
 
 // router.put("/api/cats/:id", function(req, res) {
 //   var condition = "id = " + req.params.id;

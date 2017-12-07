@@ -7,7 +7,7 @@
           <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
             <li class="list-group-item">{{this.id}}. {{this.burger_name}}
               
-                  <button data-id="{{this.id}}" class="pull-right eatBurger">Devour It!</button>
+                  <button data-id="{{this.id}}" class="pull-right eatBurger btn btn-default btn-xs">Devour It!</button>
               </form>
             </li>
           {{/unless}}
@@ -22,7 +22,7 @@
       <ul class="list-group" id="eatenBurgers">
         {{#each burgers}}
           {{#if devoured}}
-            <li class="list-group-item">{{this.id}}. {{this.burger_name}}</li>
+            <li class="list-group-item bg-light text-muted disabled">{{this.id}}. {{this.burger_name}}</li>
           {{/if}}
         {{/each}}    
       </ul>

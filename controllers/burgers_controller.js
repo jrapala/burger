@@ -26,9 +26,7 @@ router.post("/api/burgers", function(req, res) {
 router.put("/api/burgers/:id", function(req, res) {
   var burgerID = req.params.id;
 
-  burger.updateOne({
-    devoured: true
-  }, burgerID, function(data) {
+  burger.updateOne(1, burgerID, function(data) {
     res.redirect('/');
   });
 });

@@ -24,15 +24,15 @@ var orm = {
         cb(result);
       });
   },
-  // updateOne: function(table, objColVals, condition, cb) {
-  //     var queryString = "UPDATE " + table + "SET " 
-  //     connection.query(queryString, function(err, result) {
-  //       if (err) {
-  //         throw err;
-  //       }
-  //       cb(result);
-  //     });
-  // },
+  updateOne: function(table, objColVals, condition, cb) {
+      var queryString = "UPDATE ?? SET devoured = ? WHERE id = ?";
+      connection.query(queryString, [table, objColVals, condition], function(err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
+  }
 
 
 

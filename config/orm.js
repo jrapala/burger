@@ -45,8 +45,9 @@ var orm = {
       cb(result);
     });
   },
-  insertOne: function(tableInput, cb) {
-      var queryString = "SELECT * FROM " + tableInput + ";";
+  insertOne: function(table, cols, vals, cb) {
+      var queryString = "INSERT INTO" + tableInput + " (" + cols.toString() + ") VALUES (" + vals + ") ;";
+      console.log(queryString);
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;

@@ -1,18 +1,33 @@
-  <ul class="list-group" id="uneatenBurgers">
-    {{#each burgers}}
-      <li class="list-group-item">Burger: {{this.burger_name}}</li>
-    {{/each}}
-  </ul>
+    <!-- Uneaten Burgers
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+      <ul class="list-group" id="uneatenBurgers">
+        {{#each burgers}}
+          {{#unless devoured}}
+            <li class="list-group-item">{{this.id}}. {{this.burger_name}}<button data-id="{{this.id}}" class="pull-right eatBurger">Devour It!</button></li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+    <!-- Eaten Burgers
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <div class="col-md-5">
+      <ul class="list-group" id="eatenBurgers">
+        {{#each burgers}}
+          {{#if devoured}}
+            <li class="list-group-item">Burger: {{this.burger_name}}</li>
+          {{/if}}
+        {{/each}}    
+      </ul>
+    </div>
+  </div>
 </div>
-<div class="col-md-5">
-  <ul class="list-group" id="eatenBurgers">
-    {{#each burgers}}
-      <li class="list-group-item">Burger: {{this.burger_name}}</li>
-    {{/each}}    
-  </ul>
-</div>
-</div>
-</div>
+
+<!-- Burger Form
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
 <div class="container text-center">
   <div class="row" id="burgerForm">
     <div class="col-lg-4 col-lg-offset-4">

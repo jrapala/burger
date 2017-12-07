@@ -4,8 +4,9 @@
       <ul class="list-group" id="uneatenBurgers">
         {{#each burgers}}
           {{#unless devoured}}
+          <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
             <li class="list-group-item">{{this.id}}. {{this.burger_name}}
-              <form action="/api/burgers/{{this.id}}?_method=PUT" method="POST">
+              
                   <button data-id="{{this.id}}" class="pull-right eatBurger">Devour It!</button>
               </form>
             </li>
